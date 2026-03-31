@@ -92,7 +92,7 @@ spec:
     - name: {{ if $.Values.portNamePrefix }}{{ $.Values.portNamePrefix }}-{{ end }}tcp-{{ $key }}
       port: {{ $key }}
       protocol: TCP
-      targetPort: {{ if $.Values.portNamePrefix }}{{ $.Values.portNamePrefix }}-{{ end }}tcp-{{ $key }}
+      targetPort: {{ if $.Values.portNamePrefix }}{{ $.Values.portNamePrefix }}-{{ end }}{{ $key }}-tcp
     {{- if $.Values.controller.service.nodePorts.tcp }}
     {{- if index $.Values.controller.service.nodePorts.tcp $key }}
       nodePort: {{ index $.Values.controller.service.nodePorts.tcp $key }}
